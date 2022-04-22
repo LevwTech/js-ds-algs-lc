@@ -54,6 +54,20 @@ class LinkedList {
         this.length--
         toBeDeleted = null // or use delete operator
     }
+    reverse() {
+       if(this.length===1) return this.head
+    let first = this.head
+    let second = first.next
+    this.tail = this.head
+    while(second) {
+        const tmp = second.next
+        second.next = first
+        first = second
+        second = tmp
+    }
+    this.head.next = null
+    this.head = first
+    }
 }   
 const myLinkedList = new LinkedList(10)
 myLinkedList.append(5)
