@@ -51,6 +51,7 @@ class LinkedList {
         }
         let toBeDeleted = tmpNode.next
         tmpNode.next = toBeDeleted.next
+        this.length--
         toBeDeleted = null // or use delete operator
     }
 }   
