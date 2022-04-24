@@ -5,12 +5,10 @@ class Stack {
     
     push(value) {
         this.arr.push(value)
-        this.length++
     }
     
     pop() {
         this.arr.pop()
-        this.length--
     }
     
     peek() {
