@@ -5,7 +5,7 @@ class Node {
         this.prev = null
     }
 }
-
+// Slightly better time complexity for traversing o(n/2) but more memory space complexity to hold the prev pointer
 class DoublyLinkedList {
     constructor(value) {
         this.head = new Node(value)
