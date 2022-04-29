@@ -12,29 +12,27 @@ class BinarySearchTree {
     }
     insert(value) {
         const newNode = new Node(value)
-        if(this.root===null) {
+        if(!this.root) {
             this.root = newNode
+            return this;
         }
-        else {
-            let currentNode = this.root
-            while(true) {
-                if(value<currentNode.value){
-                    if(!currentNode.left){
-                        currentNode.left = newNode
-                        return this
-                    }
-                    currentNode = currentNode.left
+        let currentNode = this.root
+        while(true) {
+            if (value<currentNode.value) {
+                if(!currentNode.left) {
+                    currentNode.left = newNode
+                    return this;
                 }
-                else {
-                    if(!currentNode.right){
-                        currentNode.right = newNode
-                        return this
-                    }
-                    currentNode = currentNode.right
-                }
+                currentNode = currentNode.left
             }
-        }
-        
+            else {
+                if(!currentNode.right){
+                    currentNode.right = newNode
+                    return this;
+                }
+                currentNode = currentNode.right
+            }
+        }  
     }
     // lookup(value) {
     // }
