@@ -34,8 +34,22 @@ class BinarySearchTree {
             }
         }  
     }
-    // lookup(value) {
-    // }
+    lookup(value) {
+        if(!this.root) return false;
+        let currentNode = this.root
+        while(currentNode) {
+            if(value<currentNode.value) {
+                currentNode = currentNode.left
+            }
+            else if(value>currentNode.value) {
+                currentNode = currentNode.right
+            }
+            else if(value===currentNode.value) {
+                return currentNode
+            }
+        }
+        return false;
+    }
     //  remove(value) {
     // }
 };
@@ -51,6 +65,7 @@ myBST.insert(20)
 myBST.insert(170)
 myBST.insert(15)
 myBST.insert(1)
+console.log(myBST.lookup(6))
 console.log(JSON.stringify(traverse(myBST.root)))
 
 function traverse(node){
