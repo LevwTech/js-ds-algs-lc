@@ -50,8 +50,6 @@ class BinarySearchTree {
         }
         return false;
     }
-    //  remove(value) {
-    // }
 };
 
 //      9
