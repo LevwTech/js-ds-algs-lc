@@ -8,7 +8,7 @@ class Graph {
         this.numberOfNodes++
     }
     addEdge(node1,node2){
-    // undirected graph
+    // undirected unweighted graph
     this.adjacentList[node1].push(node2)
     this.adjacentList[node2].push(node1)
     }
