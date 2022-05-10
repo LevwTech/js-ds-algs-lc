@@ -50,6 +50,19 @@ class BinarySearchTree {
         }
         return false;
     }
+    BFS() {
+        let currentNode = this.root;
+        let queue = [];
+        let list = [];
+        queue.push(currentNode)
+        while(queue.length>0){
+            currentNode = queue.shift();
+            list.push(currentNode.value);
+            if(currentNode.left) queue.push(currentNode.left)
+             if(currentNode.right) queue.push(currentNode.right)
+        }
+        return list;
+    }
 };
 
 //      9
@@ -65,6 +78,7 @@ myBST.insert(15)
 myBST.insert(1)
 console.log(myBST.lookup(6))
 console.log(JSON.stringify(traverse(myBST.root)))
+console.log(myBST.BFS())
 
 function traverse(node){
     const tree = {value: node.value};
@@ -74,3 +88,8 @@ function traverse(node){
     traverse(node.right)
     return tree;
 }
+
+// BFS VS DFS
+// Both O(logn)
+// BFS better for shorted path but more memory
+// DFS better for determining wether a path exists slower and better memory
