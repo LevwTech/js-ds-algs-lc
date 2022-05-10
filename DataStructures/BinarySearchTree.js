@@ -52,14 +52,53 @@ class BinarySearchTree {
     }
     BFS() {
         let currentNode = this.root;
-        let queue = [];
-        let list = [];
+        const list = []
+        const queue = []
         queue.push(currentNode)
-        while(queue.length>0){
-            currentNode = queue.shift();
-            list.push(currentNode.value);
+        while(queue.length) {
+            currentNode = queue.shift()
+            list.push(currentNode.value)
             if(currentNode.left) queue.push(currentNode.left)
-             if(currentNode.right) queue.push(currentNode.right)
+            if(currentNode.right) queue.push(currentNode.right)
+        }
+        return list;
+    }
+    DFSInorder() {
+        return this.traverseInorder(this.root,[])
+    }   
+    DFSPostorder() {
+         return this.traversePostorder(this.root,[])
+    }
+    DFSPreorder() {
+         return this.traversePreorder(this.root,[])
+    }
+    traverseInorder(node,list){
+        if(node.left) {
+             this.traverseInorder(node.left,list)
+        }
+        list.push(node.value)
+        if(node.right) {
+             this.traverseInorder(node.right,list)
+        }
+        return list;
+    }
+    traversePostorder(node,list){
+        if(node.left) {
+             this.traversePostorder(node.left,list)
+        }
+        if(node.right) {
+             this.traversePostorder(node.right,list)
+        }
+        list.push(node.value)
+        return list;
+    }
+    traversePreorder(node,list){
+        list.push(node.value)
+        if(node.left) {
+             this.traversePreorder(node.left,list)
+        }
+          if(node.right) {
+             this.traversePostorder(node.right,list)
         }
         return list;
     }
@@ -79,7 +118,9 @@ myBST.insert(1)
 console.log(myBST.lookup(6))
 console.log(JSON.stringify(traverse(myBST.root)))
 console.log(myBST.BFS())
-
+console.log(myBST.DFSInorder())
+console.log(myBST.DFSPreorder())
+console.log(myBST.DFSPostorder())
 function traverse(node){
     const tree = {value: node.value};
     tree.left = node.left === null ? null :
