@@ -45,7 +45,7 @@ class LinkedList {
          tmpNode.next = newNode
     }
     remove(index) {
-         let tmpNode = this.head
+        let tmpNode = this.head
         for(let i = 0;i<index-1;i++) {
             tmpNode = tmpNode.next
         }
